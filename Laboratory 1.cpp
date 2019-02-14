@@ -19,7 +19,6 @@ int main(int argc, char const *argv[]) {
 
     //Print Cookie Opening Sentence
     cout << "Open a Fortune Cookie" << '\n';
-    cout << message << '\n';
 
     //Message
     if (message == 1) {
