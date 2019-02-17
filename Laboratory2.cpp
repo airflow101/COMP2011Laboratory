@@ -15,6 +15,7 @@ int main(int argc, char const *argv[]) {
    leftmissionaries, rightmissionaries, //amount of missionaries per side
    boatposition, //boat postion (0 = right, 1 = left)
    boatcannibals, boatmissionaries /*amount of cannibals and missionaries onboard*/;
+  char confirmationQA;//confirming player input
 
   //Initial Condition
   leftcannibals = 0; rightcannibals = 3;//Right-side
@@ -23,6 +24,7 @@ int main(int argc, char const *argv[]) {
 
   //Game Loop
   do {
+    //Condition at Location
     cout << "Left side --------------------------- Right side" << '\n';
     cout << leftcannibals << "C" << leftmissionaries << "M"; //Left side condition
     if (boatposition == 1) {
@@ -39,9 +41,32 @@ int main(int argc, char const *argv[]) {
     if (boatposition == 0) {
       cout << ", Boat(" << boatcannibals << "C" << boatmissionaries << "M" << ")" << '\n';
     }
-      //Loop Stopper
-      leftcannibals = 3;
-      leftmissionaries = 3;
+
+    //Prompt - Getting ON The board
+    do {
+      cout << "How many missionaries get ON the boat?" << '\n';
+      cin >> boatmissionaries;//Misionaries
+      cout << "How many cannibals get ON the boat?" << '\n';
+      cin >> boatcannibals;//Cannibals
+      //Validation
+      if (boatmissionaries + boatcannibals >= 3) {
+        cout << "ONLY 2 PEOPLE ALLOWED ON THE BOAT" << '\n' << endl;
+        confirmationQA = 'n';
+      } else if (boatmissionaries + boatcannibals <= 0) {
+        cout << "NO PEOPLE ON THE BOAT" << '\n' << endl;
+        confirmationQA = 'n';
+      } else {
+        cout << "Ready to go? (Y/N)" << '\n';
+        cin >> confirmationQA;
+        cout << '\n';
+      }
+    } while(confirmationQA == 'n' || confirmationQA == 'N');
+
+
+
+    //Loop Stopper
+    leftcannibals = 3;
+    leftmissionaries = 3;
 
   } while(leftcannibals != 3 && leftmissionaries != 3);
   //Loop and game ends as all cannibals and missionaries already at the other side
