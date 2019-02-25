@@ -41,6 +41,9 @@ int main(int argc, char const *argv[]) {
       cout << "Congratulations! You manage to move everyone to the destination!" << '\n';
       break;
     }
+
+
+
     //Condition at Location
     cout << "Left side --------------------------- Right side" << '\n';
     cout << leftcannibals << "C" << leftmissionaries << "M"; //Left side condition
@@ -79,10 +82,11 @@ int main(int argc, char const *argv[]) {
       if (boatstatus % 4 == 0 || boatstatus % 4 == 2) {
         cout << "Ready to go? (Y/N)" << '\n';
         cin >> confirmationQA;
-        cout << '\n';
+        cout << endl;
       } else {
         cout << "Ready to get off? (Y/N)" << '\n';
         cin >> confirmationQA;
+        cout << endl;
 
       }
     } while(confirmationQA == 'n' || confirmationQA == 'N');
