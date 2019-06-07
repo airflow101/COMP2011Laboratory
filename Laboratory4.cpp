@@ -26,15 +26,14 @@ bool checkWin(int player, const int board[][3]){
     bool sequence = true;
     //Horizontal Checking
     for (int i = 0; i < 3; i++) {
-      sequence = true;
       for (int j = 0; j < 3; j++) {
         sequence = sequence && (board [i][j] == player);
+        if(!sequence){
+          break;
+        }
       }
       if(sequence){
         return true;
-      }
-      else {
-        sequence = true;
       }
     }
 
